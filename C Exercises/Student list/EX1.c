@@ -1,7 +1,7 @@
 /*
 * File Name: EX1.cpp
 * Author: Bui Gia Phat
-* Date: 23/04/2023
+* Date: 06/08/2023
 * Description: Enter information into the list of students in the file student.csv and display it on the screen
 */
 

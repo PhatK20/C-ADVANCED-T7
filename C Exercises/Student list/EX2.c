@@ -1,7 +1,7 @@
 /*
 * File Name: EX2.cpp
 * Author: Bui Gia Phat
-* Date: 23/04/2023
+* Date: 06/08/2023
 * Description:  Enter more information into the list of students in the student.csv file and display it on the screen. 
                 The list of students is sorted alphabetically by name. 
                 Show each name, each year of birth, how many people.
