@@ -1,12 +1,3 @@
-/*
-* File Name: EX2.cpp
-* Author: Bui Gia Phat
-* Date: 06/08/2023
-* Description:  Enter more information into the list of students in the student.csv file and display it on the screen. 
-                The list of students is sorted alphabetically by name. 
-                Show each name, each year of birth, how many people.
-*/
-
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -24,11 +15,6 @@ typedef struct {
     char *lastName;
     int occurrences;
 } LastNameCount;
-
-typedef struct {
-    uint16_t yearOfBirth;
-    int count;
-} YearOfBirthCount;
 
 // Function to calculate the length of a string (without using <string.h>)
 char calculateStringLength(const char *str, char *nameLen) {
@@ -144,55 +130,6 @@ void sortStudentsByName(Student arr[], int n) {
     }
 }
 
-// Function to count occurrences of each last name
-void countLastName(Student arr[], int n, LastNameCount lastNameCounts[], int *numLastNameCounts) {
-    *numLastNameCounts = 0;
-
-    for (int i = 0; i < n; i++) {
-        char *currentLastName = extractLastName(arr[i].name);
-        int found = 0;
-        for (int j = 0; j < *numLastNameCounts; j++) {
-            if (compareStrings(currentLastName, lastNameCounts[j].lastName) == 0) {
-                lastNameCounts[j].occurrences++;
-                found = 1;
-                break;
-            }
-        }
-
-        if (!found) {
-            lastNameCounts[*numLastNameCounts].lastName = currentLastName;
-            lastNameCounts[*numLastNameCounts].occurrences = 1;
-            (*numLastNameCounts)++;
-        } else {
-            // If the current last name is already counted, free the dynamically allocated memory
-            free(currentLastName);
-        }
-    }
-}
-
-// Function to count occurrences of each year of birth
-void countYearOfBirth(Student arr[], int n, YearOfBirthCount yearCounts[], int *numYearCounts) {
-    *numYearCounts = 0;
-
-    for (int i = 0; i < n; i++) {
-        uint16_t currentYear = arr[i].yearOfBirth;
-        int found = 0;
-        for (int j = 0; j < *numYearCounts; j++) {
-            if (yearCounts[j].yearOfBirth == currentYear) {
-                yearCounts[j].count++;
-                found = 1;
-                break;
-            }
-        }
-
-        if (!found) {
-            yearCounts[*numYearCounts].yearOfBirth = currentYear;
-            yearCounts[*numYearCounts].count = 1;
-            (*numYearCounts)++;
-        }
-    }
-}
-
 int main() {
     char fileName[] = "student.csv";
     FILE *file = fopen(fileName, "r");
@@ -252,15 +189,32 @@ int main() {
     // Sort the list of students by name alphabetically
     sortStudentsByName(students, numStudents);
 
-    // Count occurrences of each last name
+    // Calculate the number of occurrences of each last name
     LastNameCount lastNameCounts[MAX_STUDENTS];
     int numLastNameCounts = 0;
-    countLastName(students, numStudents, lastNameCounts, &numLastNameCounts);
 
-    // Count occurrences of each year of birth
-    YearOfBirthCount yearCounts[MAX_STUDENTS];
-    int numYearCounts = 0;
-    countYearOfBirth(students, numStudents, yearCounts, &numYearCounts);
+    for (i = 0; i < numStudents; i++) {
+        char *currentLastName = extractLastName(students[i].name);
+
+        // Check if the current last name is already counted
+        int j;
+        for (j = 0; j < numLastNameCounts; j++) {
+            if (compareStrings(currentLastName, lastNameCounts[j].lastName) == 0) {
+                lastNameCounts[j].occurrences++;
+                break;
+            }
+        }
+
+        // If the last name is not counted yet, add it to the list
+        if (j == numLastNameCounts) {
+            lastNameCounts[numLastNameCounts].lastName = currentLastName;
+            lastNameCounts[numLastNameCounts].occurrences = 1;
+            numLastNameCounts++;
+        } else {
+            // If the current last name is already counted, free the dynamically allocated memory
+            free(currentLastName);
+        }
+    }
 
     // Write the data back to the file
     file = fopen(fileName, "w");
@@ -281,7 +235,6 @@ int main() {
     }
 
     // Display the sorted list of students
-    printf("/********************************************************************/\n");
     printf("Danh sach sinh vien:\n");
     printf("NO | %-*s | Gender | Year of Birth | Student ID\n", maxNameLength, "Name");
     for (i = 0; i < numStudents; i++) {
@@ -294,20 +247,12 @@ int main() {
     }
 
     // Display the occurrences of each last name
-    printf("/********************************************************************/\n");
-    printf("Danh sach ten sinh vien:\n");
+    printf("Danh sach ten sinh vien va so lan xuat hien:\n");
     for (i = 0; i < numLastNameCounts; i++) {
-        printf("%s: %d nguoi\n", lastNameCounts[i].lastName, lastNameCounts[i].occurrences);
+        printf("%s: %d\n", lastNameCounts[i].lastName, lastNameCounts[i].occurrences);
     }
 
-    // Display the occurrences of each year of birth
-    printf("/********************************************************************/\n");
-    printf("Danh sach nam sinh:\n");
-    for (i = 0; i < numYearCounts; i++) {
-        printf("Nam sinh %d: %d nguoi\n", yearCounts[i].yearOfBirth, yearCounts[i].count);
-    }
-
-    // Free the dynamically allocated memory for students, last names, and years of birth
+    // Free the dynamically allocated memory for students and last names
     for (i = 0; i < numStudents; i++) {
         free(students[i].name);
         free(students[i].gender);

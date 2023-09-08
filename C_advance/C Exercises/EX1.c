@@ -2,7 +2,7 @@
 * File Name: EX1.cpp
 * Author: Bui Gia Phat
 * Date: 06/08/2023
-* Description: Enter information into the list of students in the file student.csv and display it on the screen
+* Description: Enter information into the list of students in the file student.csv and display it on the screen.
 */
 
 #include <stdio.h>
@@ -18,6 +18,7 @@ typedef struct {
     uint16_t year_of_birth;
 } Student;
 
+// Tìm tên có độ dài lớn nhất
 char countEleStr(const char *str, char *nameLen) {
     char count = 0;
 
@@ -123,6 +124,6 @@ int main() {
         free(students[i].name);
         free(students[i].gender);
     }
-
+    
     return 0;
 }
