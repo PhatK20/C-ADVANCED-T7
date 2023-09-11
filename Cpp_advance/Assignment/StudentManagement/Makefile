@@ -1,7 +1,7 @@
 CC := gcc
 CXX := g++
-CFLAGS := -Wall -Wextra -std=c11 -IHeader
-CXXFLAGS := -Wall -Wextra -std=c++11 -IHeader
+CFLAGS := -Wall -Wextra -std=c20 -IHeader
+CXXFLAGS := -Wall -Wextra -std=c++20 -IHeader
 TARGET := main
 
 SRC_C := $(wildcard Source/*.c)

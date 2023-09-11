@@ -6,7 +6,7 @@
  * It contains the main function that drives the program and provides a menu for user interaction.
  */
 
-#include "StudentClass_Vector.h"
+#include "StudentManagement.h"
 
 extern vector<SinhVien> dataBaseSV;
 

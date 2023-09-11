@@ -5,6 +5,10 @@
 		"iostream": "cpp",
 		"ostream": "cpp",
 		"xlocinfo": "cpp",
-		"xstring": "cpp"
+		"xstring": "cpp",
+		"system_error": "cpp",
+		"xlocale": "cpp",
+		"iterator": "cpp",
+		"ranges": "cpp"
 	}
 }

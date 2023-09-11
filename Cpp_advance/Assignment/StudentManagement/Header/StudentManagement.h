@@ -6,8 +6,8 @@
  * and related functions for a student management system using vectors.
  */
 
-#ifndef __STUDENT_CLASS_VECTOR_H
-#define __STUDENT_CLASS_VECTOR_H
+#ifndef __STUDENT_MANAGEMENT_H
+#define __STUDENT_MANAGEMENT_H
 
 #include <stdio.h>
 #include <stdint.h>

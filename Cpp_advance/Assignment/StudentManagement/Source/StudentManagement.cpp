@@ -6,7 +6,7 @@
  * and related functions for a student management system using vectors.
  */
 
-#include "StudentClass_Vector.h"
+#include "StudentManagement.h"
 
 vector<SinhVien> dataBaseSV;
 double SinhVien::idCounter = 1000;
