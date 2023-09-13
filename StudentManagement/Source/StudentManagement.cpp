@@ -1,5 +1,5 @@
 /*
- * File Name: StudentClass_Vector.cpp
+ * File Name: StudentManagement.cpp
  * Author: Phat Bui Gia
  * Date: 08/09/2023
  * Description: This source file contains the implementation of the Student class

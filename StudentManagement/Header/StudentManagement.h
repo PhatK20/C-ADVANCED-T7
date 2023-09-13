@@ -1,5 +1,5 @@
 /*
- * File Name: StudentClass_Vector.h
+ * File Name: StudentManagement.h
  * Author: Phat Bui Gia
  * Date: 08/09/2023
  * Description: This header file contains the declaration of the Student class 
