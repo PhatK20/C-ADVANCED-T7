@@ -147,20 +147,6 @@ int main() {
 
     // Free the memory
     freeList(&head);
-    
-    // Check if allocated memory has been deallocated
-    if (head != NULL) {
-    printf("%d\n", head->data);
-    // or
-    printf("%p", (void*)head->next);
-    } 
-    else {
-    printf("List is empty.\n");
-    }
-
-    struct Node* nodePtr = createNode(10); // Tạo một Node với giá trị 10
-    printf("Address of nodePtr: %p\n", (void*)&nodePtr);
-    printf("Address of data inside nodePtr: %p\n", (void*)&(nodePtr->data));
 
     return 0;
 }

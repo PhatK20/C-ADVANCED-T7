@@ -85,7 +85,10 @@ public:
 	void danhSachSV();
 };
 
+// Display student title
 void tieuDeThongTinSV();
+
+// Display student information
 void hienThiThongTinSV(SinhVien sv);
 
 #endif

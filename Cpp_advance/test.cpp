@@ -20,7 +20,20 @@ void displayMainMenu()
 	cout << "1. Manager" << endl;
 	cout << "2. Staff" << endl;
 	cout << "_________________________" << endl;
-	cout << "Enter your choice: ";
+}
+
+int getUserChoice(int numBegin, int numEnd)
+{
+	int choice;
+	printf("Enter your choice: ");
+	scanf("%d", &choice);
+	while (choice < numBegin || choice > numEnd)
+	{
+		printf("Invalid choice! Please try again\n");
+		printf("Enter your choice: ");
+		scanf("%d", &choice);
+	}
+	return choice;
 }
 
 class Dish
@@ -192,13 +205,11 @@ void Manager::displayMenuManager()
 
 void Manager::menuManager()
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 5);
 	switch (choice)
 	{
 	case 0:
+		cout << endl;
 		break;
 	case 1:
 		menuNumerOfTable();
@@ -214,10 +225,6 @@ void Manager::menuManager()
 		break;
 	case 5:
 		displayDishList();
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		menuManager();
 		break;
 	}
 }
@@ -385,9 +392,7 @@ void Manager::editDish1(int i)
 
 void Manager::editDish2()
 {
-	int key;
-	cout << "Enter your choice: ";
-	cin >> key;
+	int key = getUserChoice(0, 1);
 	switch (key)
 	{
 	case 0:
@@ -395,10 +400,6 @@ void Manager::editDish2()
 		break;
 	case 1:
 		menuEditDish();
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		editDish2();
 		break;
 	}
 }
@@ -487,9 +488,7 @@ void Manager::removeDish1(int i)
 
 void Manager::removeDish2()
 {
-	int key;
-	cout << "Enter your choice: ";
-	cin >> key;
+	int key = getUserChoice(0, 1);
 	switch (key)
 	{
 	case 0:
@@ -497,10 +496,6 @@ void Manager::removeDish2()
 		break;
 	case 1:
 		menuRemoveDish();
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		removeDish2();
 		break;
 	}
 }
@@ -510,6 +505,7 @@ class Table
 private:
 	bool status;
 	int totalMoney;
+
 public:
 	vector<Dish> dishListOnTable;
 	Table() : status(false), totalMoney(0) {}
@@ -520,7 +516,6 @@ public:
 	void setTotalMoney(int totalMoney);
 	int getTotalMoney();
 };
-
 
 void Table::setStatus(bool status)
 {
@@ -716,20 +711,13 @@ void Staff::displayMenuStaff()
 
 void Staff::menuStaff()
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 1);
 	switch (choice)
 	{
 	case 0:
 		break;
 	case 1:
 		selectTable();
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		menuStaff();
 		break;
 	}
 }
@@ -767,10 +755,7 @@ void Staff::displayMenuTable(int table)
 
 void Staff::menuTable(int table)
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 4);
 	switch (choice)
 	{
 	case 0:
@@ -787,12 +772,8 @@ void Staff::menuTable(int table)
 	case 4:
 		displayDishListOnTable(table);
 		break;
-	// case 5:
-	// 	payBill();
-	// 	break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		menuTable(table);
+	case 5:
+		payBill(table);
 		break;
 	}
 }
@@ -860,10 +841,7 @@ void Staff::menuAddDish(int table)
 
 void Staff::addDish(int table)
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 1);
 	switch (choice)
 	{
 	case 0:
@@ -871,10 +849,6 @@ void Staff::addDish(int table)
 		break;
 	case 1:
 		menuAddDish(table);
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		addDish(table);
 		break;
 	}
 }
@@ -940,10 +914,7 @@ void Staff::menuEditDish(int table)
 
 void Staff::editDish(int table)
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 1);
 	switch (choice)
 	{
 	case 0:
@@ -951,10 +922,6 @@ void Staff::editDish(int table)
 		break;
 	case 1:
 		menuEditDish(table);
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		editDish(table);
 		break;
 	}
 }
@@ -1051,10 +1018,7 @@ void Staff::removeDish1(int table, int i)
 
 void Staff::removeDish2(int table)
 {
-	int key;
-	cout << "Enter your choice: ";
-	cin >> key;
-	cout << endl;
+	int key = getUserChoice(0, 1);
 	switch (key)
 	{
 	case 0:
@@ -1062,10 +1026,6 @@ void Staff::removeDish2(int table)
 		break;
 	case 1:
 		menuRemoveDish(table);
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		removeDish2(table);
 		break;
 	}
 }
@@ -1105,10 +1065,7 @@ void Staff::menuPayBill(int table)
 
 void Staff::payBill(int table)
 {
-	cout << "Enter your choice: ";
-	int choice;
-	cin >> choice;
-	cout << endl;
+	int choice = getUserChoice(0, 1);
 	switch (choice)
 	{
 	case 0:
@@ -1118,10 +1075,6 @@ void Staff::payBill(int table)
 		cout << "Successfully paid." << endl;
 		tableList[table - 1].setStatus(false);
 		displayMenuStaff();
-		break;
-	default:
-		cout << "Invalid choice. Please try again." << endl;
-		payBill(table);
 		break;
 	}
 }
@@ -1133,9 +1086,7 @@ int main()
 	while (1)
 	{
 		displayMainMenu();
-		int key;
-		cin >> key;
-		cout << endl;
+		int key = getUserChoice(0, 3);
 		switch (key)
 		{
 		case 0:
@@ -1148,8 +1099,6 @@ int main()
 			staff.setNumberOfTable(manager.getTable());
 			staff.setSizeTableList(manager.getTable());
 			staff.displayMenuStaff();
-			break;
-		default:
 			break;
 		}
 	}
