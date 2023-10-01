@@ -1,5 +1,5 @@
 /*
- * File Name: ElectricMotorcycle.h
+ * File Name: main.cpp
  * Author: Phat Bui Gia
  * Date: 30/09/2023
  * Description: This program simulates an electric motorcycle's dashboard display and user interaction.

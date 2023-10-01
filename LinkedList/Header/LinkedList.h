@@ -1,8 +1,8 @@
 /*
 * File: LinkedList.h
 * Author: Phat Bui Gia
-* Date: 27/08/2023
-* Description: This is the header file that includes the declaration of functions in the Linked List.
+* Date: 20/08/2023
+* Description: This header file includes the declaration of functions and structs in the Linked List.
 */
 
 #ifndef __LINKED_LIST_H

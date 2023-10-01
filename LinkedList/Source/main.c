@@ -1,7 +1,7 @@
 /*
  * File: main.c
  * Author: Phat Bui Gia
- * Date: 27/08/2023
+ * Date: 20/08/2023
  * Description: A program to perform functions in a linked list.
  */
 

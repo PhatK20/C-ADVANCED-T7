@@ -66,6 +66,8 @@
 		"xstddef": "cpp",
 		"xtr1common": "cpp",
 		"xtree": "cpp",
-		"random": "cpp"
+		"random": "cpp",
+		"stdio.h": "c",
+		"deque": "cpp"
 	}
 }

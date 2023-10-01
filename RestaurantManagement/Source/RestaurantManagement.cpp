@@ -215,7 +215,7 @@ void Manager::displayDishList()
 		cout << "____________Menu____________" << endl;
 		cout << " NO | ID  |   Name   |   Price   " << endl;
 		cout << "------------------------------" << endl;
-		for (int i = 0; i < dishList.size(); i++)
+		for (int i = 0; i < (int)dishList.size(); i++)
 		{
 			printf(" %-3d| %-4d| %-9s| %-10d\n", i + 1,
 				   dishList[i].getIdDish(), dishList[i].getNameDish().c_str(), dishList[i].getPriceDish());
@@ -849,7 +849,7 @@ void Staff::displayDishList(int table)
 		cout << "____________Menu____________" << endl;
 		cout << " NO | ID  |   Name   |   Price   " << endl;
 		cout << "------------------------------" << endl;
-		for (int i = 0; i < dishList.size(); i++)
+		for (int i = 0; i < (int)dishList.size(); i++)
 		{
 			printf(" %-3d| %-4d| %-9s| %-10d\n", i + 1,
 				   dishList[i].getIdDish(), dishList[i].getNameDish().c_str(), dishList[i].getPriceDish());
@@ -902,7 +902,7 @@ void Staff::displayDishListOnTable(int table)
 	{
 		cout << " NO | ID  |   Name   |   Price   | Amount" << endl;
 		cout << "------------------------------" << endl;
-		for (int i = 0; i < tableList[table - 1].dishListOnTable.size(); i++)
+		for (int i = 0; i < (int)tableList[table - 1].dishListOnTable.size(); i++)
 		{
 			printf(" %-3d| %-4d| %-9s| %-10d| %-7d\n", i + 1,
 				   tableList[table - 1].dishListOnTable[i].getIdDish(),
@@ -1415,7 +1415,7 @@ void Staff::menuPayBill(int table)
 		cout << " NO | ID  |   Name   |   Price   | Amount" << endl;
 		cout << "------------------------------" << endl;
 		int total = 0;
-		for (int i = 0; i < tableList[table - 1].dishListOnTable.size(); i++)
+		for (int i = 0; i < (int)tableList[table - 1].dishListOnTable.size(); i++)
 		{
 			printf(" %-3d| %-4d| %-9s| %-10d| %-7d\n", i + 1,
 				   tableList[table - 1].dishListOnTable[i].getIdDish(),

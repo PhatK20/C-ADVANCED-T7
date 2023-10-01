@@ -1,7 +1,7 @@
 /*
  * File: LinkedList.c
  * Author: Phat Bui Gia
- * Date: 27/08/2023
+ * Date: 20/08/2023
  * Description: This file includes the definition of all functions in linked lists.
  */
 

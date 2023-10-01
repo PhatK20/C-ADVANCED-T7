@@ -1,5 +1,5 @@
 /*
- * File Name: ElectricMotorcycle.h
+ * File Name: ElectricMotorcycle.cpp
  * Author: Phat Bui Gia
  * Date: 30/09/2023
  * Description: This C++ program simulates an electric motorcycle control system.
